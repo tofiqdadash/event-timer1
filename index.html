@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-timer</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--Left side for rendering created events-->
+       <section class="render-events"> 
+        <!--   
+            <div class="rendered-event-container">
+           <div class="title-side"> </div>
+           <div class = "date-side"> </div>
+            </div>
+        -->
+    </section>
+
+    <!--Right side for creating new events-->
+    <section class="create-events">
+        <form>
+            <h2 id="validation-check">Create new event</h2>
+            <label for="title">Title</label> 
+            <input type="text" id="title" placeholder="Title...">
+            <label for="description">Description</label>
+            <textarea name="description" id="description" cols="20" rows="4" placeholder="Description..."></textarea>
+            <h3>Choose date for event</h3> 
+            <div class="choose-date-and-time">
+           <input type="date" id="event-date">
+            <input type="time" id="event-time">
+            </div>
+            <button id="addbutton">Add event</button>
+        </form>
+    </section>
+    <div id="delete-event">
+        <img src="./trash.png" alt="trash">
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

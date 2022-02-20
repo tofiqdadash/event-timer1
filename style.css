@@ -1,0 +1,137 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;  
+  }
+  
+  
+  
+  body{
+      display: flex;
+      justify-content: space-between;
+      font-size: 62.5%;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #0336FF;
+      position: relative;
+  }
+  
+  
+  /* event creation side */
+  .create-events{
+      right : 1rem;
+      position: relative;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .create-events form{
+      width:35%;
+      top: 10rem;
+      right:5rem;
+      position: fixed;
+      color: black;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      background-color: #ffde03;
+      padding : 4em 2em;
+      margin: 2rem 1rem;
+      border-radius: 5px;
+  }
+  
+  .create-events label{
+      font-size: 1rem;
+      margin-top: 10px;
+      font-weight: 700;
+  }
+  
+  .create-events input{
+      height: 1.5rem;
+  }
+  
+  
+  .create-events h2{
+      font-size : 1.7rem;
+      margin: 0;
+      text-align: center;
+  }
+  
+   h3{
+      margin-top: 1rem;
+      font-size: 1rem;
+  }
+  
+  .create-events #addbutton{
+      margin-top: 1rem;
+      font-size: 1rem;
+      color:black;
+      cursor: pointer;
+  }
+  
+  .choose-date-and-time {
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  .choose-date-and-time input{
+      width: 150px;
+  }
+  
+  
+  /* event rendering side */
+  
+  .render-events{
+      width: 50vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+  }
+  
+  .rendered-event-container{
+      display: flex;
+      padding: 1em;
+  }
+  
+  .rendered-event-container .date-side{
+      background-color: #ffde03;
+      color:black;
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 1em;
+      border-radius: 5px 0 0 5px;
+  }
+  
+  
+  .rendered-event-container .title-side{
+      background-color: #bebba1;
+      color:black;
+      font-size: 1rem ;
+      font-weight: 500;
+      text-align: center;
+      padding: 1em;
+      border-radius: 0 5px 5px 0;
+  }
+  
+  
+  /* trash icon */
+  #delete-event{
+      position : fixed;
+      bottom: 1rem;
+      left : 2rem;
+      width: 50px;
+  }
+  
+  #delete-event img{
+      width :50px;
+  }
+  
+  /* draggable dates*/
+  
+  .invisible{
+      display : none;
+  }
+  
+  
