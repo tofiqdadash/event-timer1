@@ -116,7 +116,7 @@
   }
   
   
-  /* trash icon */
+  /* delete button */
   #delete-event{
       position : fixed;
       bottom: 1rem;
@@ -130,7 +130,7 @@
   
   /* draggable dates*/
   
-  .invisible{
+  .hide{
       display : none;
   }
   

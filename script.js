@@ -9,7 +9,7 @@ const timeValue = document.querySelector("#event-time");
 const changeableH2 = document.querySelector("#validation-check");
 
 const renderingSide = document.querySelector(".render-events")
-const eventData = [];
+let eventData = [];
 const calendar = ["Yanvar" , "Fevral" , "Mart" , "Aprel" , "May" , "Iyun" , "Iyul", "Avqust" , "Sentyabr" , "Oktyabr" , "Noyabr" , "Dekabr" ];
 
 
@@ -17,27 +17,47 @@ addBtn.addEventListener("click" , event => {
 
 event.preventDefault();
 
-  //check validation
-checkValidate();
+//validation checking function
+const checkValidate = () => {
+  if((titleInput.value && dateValue.value && descValue.value) == ''){
+    changeableH2.textContent = "Fill the inputs please";
+    changeableH2.style.backgroundColor = "red";
+    changeableH2.style.color = "white";
+    return false;
+  }
+  changeableH2.textContent = 'Create new event';
+  changeableH2.style.backgroundColor = '#ffde03'
+  changeableH2.style.color = "black";
 
-   const eventItem = {
-    title: titleInput.value,
-    description: descValue.value,
-    date: `${dateValue.value},${timeValue.value}`
+  
+//include event to an object
+const eventItem = {
+  title: titleInput.value,
+  description: descValue.value,
+  date: `${dateValue.value},${timeValue.value}`
 }
+
 
 //pushing events an empty array
 eventData.push(eventItem);
-renderEvents();
+
+
+//localstorage using
+localStorage.setItem('eventStorage' , JSON.stringify(eventData));
+eventData = JSON.parse(localStorage.getItem('eventStorage'));
+
+renderEvents(); 
+
+}
+
+checkValidate();
 
 })
-
-
 
 const renderEvents = () => {
 
   renderingSide.textContent = '';
-  eventData.map((item) => {
+  eventData.map((item , index) => {
 
 
 //getting month and day values
@@ -69,22 +89,45 @@ const renderEvents = () => {
     renderedEventsContainer.appendChild(renderedEvent);
    
     renderedEvent.draggable = true;
+
+    console.log(index);
+    console.log(item);
+
+
+  /* delete events */
+  renderedEvent.addEventListener('dragstart' , dragStart)
+
+  function dragStart(e){
+    e.dataTransfer.setData('item' , index)
+    console.log('dragstart');
+  }
+  
+  const deleteEvent = document.querySelector('#delete-event')
+  deleteEvent.addEventListener('dragenter' , dragEnter);
+  deleteEvent.addEventListener('dragover' , dragOver);
+  deleteEvent.addEventListener('drop' , drop);
+
+  
+  function dragEnter(e){
+    e.preventDefault();
+  }
+
+  function dragOver(e){
+    e.preventDefault();
+  }
+
+  function drop(e){
+    const id = e.dataTransfer.getData('item');
+    eventData.splice(id,1)
+    console.log('dragdrop');
+    renderEvents();
+    console.log(eventData);
+  }
+  
   })
 
 }
 
-
-const checkValidate = () => {
-  if((titleInput.value && dateValue.value && descValue.value) == ''){
-    changeableH2.textContent = "Fill the inputs please";
-    changeableH2.style.backgroundColor = "red";
-    changeableH2.style.color = "white";
-    return false;
-  }
-  changeableH2.textContent = 'Create new event';
-  changeableH2.style.backgroundColor = '#ffde03'
-  changeableH2.style.color = "black";
-}
 
 
 
