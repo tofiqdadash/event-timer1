@@ -11,7 +11,8 @@
       justify-content: space-between;
       font-size: 62.5%;
       font-family: 'Open Sans', sans-serif;
-      background-color: #0336FF;
+      background-color: #7cffcb;
+      background-image: linear-gradient(315deg, #7cffcb 0%, #74f2ce 74%);
       position: relative;
   }
   
@@ -34,7 +35,8 @@
       display:flex;
       flex-direction: column;
       justify-content: space-evenly;
-      background-color: #ffde03;
+      background-color: #36096d;
+      background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
       padding : 4em 2em;
       margin: 2rem 1rem;
       border-radius: 5px;
@@ -48,9 +50,18 @@
   
   .create-events input{
       height: 1.5rem;
+      padding: 1rem 0;
+      padding-left: 0.5rem;
+      font-size: 1rem;
+      font-family: inherit;
   }
-  
-  
+
+.create-events textarea{
+    font-size: 1rem;
+    padding-left: 0.5rem;
+    font-family: inherit;
+}
+
   .create-events h2{
       font-size : 1.7rem;
       margin: 0;
@@ -67,6 +78,12 @@
       font-size: 1rem;
       color:black;
       cursor: pointer;
+      padding: 0.5rem 0;
+      font-weight: 500;
+  }
+
+  #addbutton:hover{
+      background-color: #dad9d6;
   }
   
   .choose-date-and-time {

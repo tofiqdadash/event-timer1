@@ -6,7 +6,7 @@ const dateValue = document.querySelector("#event-date");
 const timeValue = document.querySelector("#event-time");
 
 //changeable text for validation process
-const changeableH2 = document.querySelector("#validation-check");
+const validationError = document.querySelector("#validation-check");
 
 const renderingSide = document.querySelector(".render-events")
 let eventData = [];
@@ -16,20 +16,8 @@ const calendar = ["Yanvar" , "Fevral" , "Mart" , "Aprel" , "May" , "Iyun" , "Iyu
 addBtn.addEventListener("click" , event => {
 
 event.preventDefault();
+checkValidate();
 
-//validation checking function
-const checkValidate = () => {
-  if((titleInput.value && dateValue.value && descValue.value) == ''){
-    changeableH2.textContent = "Fill the inputs please";
-    changeableH2.style.backgroundColor = "red";
-    changeableH2.style.color = "white";
-    return false;
-  }
-  changeableH2.textContent = 'Create new event';
-  changeableH2.style.backgroundColor = '#ffde03'
-  changeableH2.style.color = "black";
-
-  
 //include event to an object
 const eventItem = {
   title: titleInput.value,
@@ -46,14 +34,25 @@ eventData.push(eventItem);
 localStorage.setItem('eventStorage' , JSON.stringify(eventData));
 eventData = JSON.parse(localStorage.getItem('eventStorage'));
 
-renderEvents(); 
-
-}
-
-checkValidate();
+renderEvents();
 
 })
 
+//validation checking function
+const checkValidate = () => {
+  if((titleInput.value && dateValue.value && descValue.value) == ''){
+    validationError.textContent = "Fill the inputs please";
+    validationError.style.backgroundColor = "red";
+    validationError.style.color = "white";
+    return false;
+  }
+  validationError.textContent = 'Create new event';
+  validationError.style.backgroundColor = 'transparent'
+  validationError.style.color = "black";
+}
+
+
+//render events
 const renderEvents = () => {
 
   renderingSide.textContent = '';
@@ -61,47 +60,44 @@ const renderEvents = () => {
 
 
 //getting month and day values
-  let eventDate = new Date(item.date);
-  let eventMonth = eventDate.getMonth(eventDate) + 1;
-  let eventDay = eventDate.getDate(eventDate);
+  const eventDate = new Date(item.date);
+  const eventMonth = eventDate.getMonth(eventDate) + 1;
+  const eventDay = eventDate.getDate(eventDate);
 
   //switching number months to string version
-  let selectedMonth = calendar[eventMonth - 1];
+  const selectedMonth = calendar[eventMonth - 1];
 
 //creating event - event time combination
-    let renderedEventsContainer = document.querySelector('.render-events');
-    let renderedEvent = document.createElement('div');
+    const renderSection = document.querySelector('.render-events');
+    const renderedEvent = document.createElement('div');
     renderedEvent.classList.add("rendered-event-container");
   
-    let dateSide = document.createElement('div');
+    const dateSide = document.createElement('div');
     dateSide.classList.add("date-side");
     dateSide.textContent = `${eventDay} 
     ${selectedMonth}`;
     
     
-  let titleSide = document.createElement('div');
+  const titleSide = document.createElement('div');
     titleSide.classList.add("title-side");
     titleSide.textContent = item.title;
   
   
     renderedEvent.appendChild(dateSide);
     renderedEvent.appendChild(titleSide);
-    renderedEventsContainer.appendChild(renderedEvent);
+    renderSection.appendChild(renderedEvent);
    
     renderedEvent.draggable = true;
 
-    console.log(index);
-    console.log(item);
 
-
-  /* delete events */
+  /* drag events */
   renderedEvent.addEventListener('dragstart' , dragStart)
 
   function dragStart(e){
-    e.dataTransfer.setData('item' , index)
-    console.log('dragstart');
+    e.dataTransfer.setData('item' , index);
   }
   
+  //delete events
   const deleteEvent = document.querySelector('#delete-event')
   deleteEvent.addEventListener('dragenter' , dragEnter);
   deleteEvent.addEventListener('dragover' , dragOver);
@@ -119,9 +115,7 @@ const renderEvents = () => {
   function drop(e){
     const id = e.dataTransfer.getData('item');
     eventData.splice(id,1)
-    console.log('dragdrop');
     renderEvents();
-    console.log(eventData);
   }
   
   })
