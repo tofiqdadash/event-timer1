@@ -31,7 +31,7 @@
       top: 10rem;
       right:5rem;
       position: fixed;
-      color: black;
+      color: white;
       display:flex;
       flex-direction: column;
       justify-content: space-evenly;
@@ -43,7 +43,7 @@
   }
   
   .create-events label{
-      font-size: 1rem;
+      font-size: 1.2rem;
       margin-top: 10px;
       font-weight: 700;
   }
@@ -66,6 +66,7 @@
       font-size : 1.7rem;
       margin: 0;
       text-align: center;
+      color: white;
   }
   
    h3{
@@ -79,11 +80,12 @@
       color:black;
       cursor: pointer;
       padding: 0.5rem 0;
-      font-weight: 500;
+     
   }
 
   #addbutton:hover{
-      background-color: #dad9d6;
+      background-color: #dad9d6; 
+      font-weight: 550;
   }
   
   .choose-date-and-time {
@@ -112,8 +114,8 @@
   }
   
   .rendered-event-container .date-side{
-      background-color: #ffde03;
-      color:black;
+      background-color: #03cdff;
+      color:white;
       font-size: 1rem;
       font-weight: 700;
       text-align: center;
@@ -123,8 +125,8 @@
   
   
   .rendered-event-container .title-side{
-      background-color: #bebba1;
-      color:black;
+      background-color: white;
+      color: #03cdff;
       font-size: 1rem ;
       font-weight: 500;
       text-align: center;
@@ -149,6 +151,17 @@
   
   .hide{
       display : none;
+  }
+
+  .vibing{
+      animation: notification 3s infinite;
+  }
+
+  @keyframes notification{
+      5% { transform: rotate(10deg);}
+      10% { transform: rotate(-10deg);}
+      15% { transform: rotate(10deg);}
+      20% { transform: rotate(0deg);}
   }
   
   
