@@ -110,6 +110,94 @@ const renderEvents = () => {
 
     /* drag events */
     renderedEvent.addEventListener("dragstart", (e) => dragStart(e, index));
+
+    //add countdown to the event
+    renderedEvent.addEventListener('click' , countDown)
+
+    //countDown function
+  function countDown(){
+  const countDownSide = document.createElement("main");
+  countDownSide.classList.add("countdown-side")
+  
+  const countDownContainer = document.createElement('div');
+  countDownContainer.classList.add("countdown-container");
+  
+  const dayDiv = document.createElement("div");
+  dayDiv.classList.add("box");
+  const dayInput = document.createElement("p");
+  const dayTitle=document.createElement("p");
+  dayTitle.textContent = "Days"
+
+  const hourDiv = document.createElement("div");
+  hourDiv.classList.add("box");
+  const hourInput = document.createElement("p");
+  const hourTitle=document.createElement("p");
+  hourTitle.textContent = "Hours"
+
+  const minuteDiv = document.createElement("div");
+  minuteDiv.classList.add("box");
+  const minuteInput = document.createElement("p");
+  const minuteTitle=document.createElement("p");
+  minuteTitle.textContent = "Minutes"
+
+  const secondDiv = document.createElement("div");
+  secondDiv.classList.add("box");
+  const secondInput = document.createElement("p");
+  const secondTitle=document.createElement("p");
+  secondTitle.textContent = "Seconds"
+
+  const countDownDate = new Date(item.date).getTime();
+   
+  //update the count down every 1 second
+   const interval = setInterval( () => {
+
+    //get today's date and time
+    const currentTime = new Date().getTime();
+
+    //find distance between dates
+    const distance = countDownDate - currentTime;
+
+    //time calculations for days, hours, minutes, seconds
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // //write certain datas to html via dom
+   dayInput.textContent = days;
+   hourInput.textContent = hours;
+   minuteInput.textContent = minutes;
+   secondInput.textContent = seconds;
+
+   //append day,hour,minute,second components to body
+   dayDiv.append(dayInput);
+   dayDiv.append(dayTitle);
+   countDownContainer.append(dayDiv);
+
+   hourDiv.append(hourInput);
+   hourDiv.append(hourTitle);
+   countDownContainer.append(hourDiv);
+
+   minuteDiv.append(minuteInput);
+   minuteDiv.append(minuteTitle);
+   countDownContainer.append(minuteDiv);
+
+   secondDiv.append(secondInput);
+   secondDiv.append(secondTitle);
+   countDownContainer.append(secondDiv);
+
+   countDownSide.append(countDownContainer);
+
+   document.body.append(countDownSide);
+
+    if(distance < 0){
+      clearInterval(interval);
+      console.log('expired');
+    }
+
+   } , 1000)
+  }
+
   });
 };
 
@@ -131,8 +219,12 @@ function drop(e) {
 
 function dragEnter(e) {
   e.preventDefault();
+  
 }
 
 function dragOver(e) {
   e.preventDefault();
+  deleteEvent.classList.add('vibing');
 }
+
+

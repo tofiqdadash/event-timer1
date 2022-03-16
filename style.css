@@ -4,9 +4,8 @@
     box-sizing: border-box;  
   }
   
-  
-  
-  body{
+    main{
+      height: 100vh;
       display: flex;
       justify-content: space-between;
       font-size: 62.5%;
@@ -105,7 +104,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      
   }
   
   .rendered-event-container{
@@ -162,6 +160,36 @@
       10% { transform: rotate(-10deg);}
       15% { transform: rotate(10deg);}
       20% { transform: rotate(0deg);}
+      100% {transform: rotate(0deg);}
   }
   
-  
+  /* countdown container */
+  .countdown-side{
+      height: 100vh;
+      width: 100vw;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      background-color: red;
+      position: absolute;
+      left:0;
+      top:0;
+  }
+
+  .countdown-container{
+      display: flex;
+  }
+
+  .box{
+      font-family: 'Open Sans', sans-serif;
+      width: 240px;
+      height: 150px;
+      background-color: black;
+      color:white;
+      margin-left: 0.5rem;
+      font-size: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
