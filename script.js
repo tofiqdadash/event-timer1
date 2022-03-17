@@ -172,11 +172,14 @@ const renderEvents = () => {
     //if number is less than 10 add 0
     if(seconds < 10){
       secondInput.textContent = `0${seconds}` ;
-    } else if( minutes < 10){
-      minuteInput.textContent = `0${seconds}` ;
-    } else if(hours < 10){
-      hourInput.textContent = `0${hours}`;
-    } else if(days < 0){
+    } 
+     if( minutes < 10){
+      minuteInput.textContent = `0${minutes}` ;
+    } 
+     if(hours < 10){
+      hourInput.textContent = `0${hours}`
+    } 
+     if(days < 10){
       dayInput.textContent = `0${days}`;
     }
 
