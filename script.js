@@ -121,7 +121,15 @@ const renderEvents = () => {
 
   const countDownContainer = document.createElement('div');
   countDownContainer.classList.add("countdown-container");
-  
+
+const cdEventDiv = document.createElement('div');
+cdEventDiv.classList.add('countdown-title-side');
+
+  const cdEventTitle = document.createElement('h2');
+  cdEventTitle.textContent = `Event title: ${item.title} `;
+
+  cdEventDiv.append(cdEventTitle);
+
   const dayDiv = document.createElement("div");
   dayDiv.classList.add("box");
   const dayInput = document.createElement("p");
@@ -183,8 +191,6 @@ const renderEvents = () => {
       dayInput.textContent = `0${days}`;
     }
 
-
-
    //append day,hour,minute,second components to body
    dayDiv.append(dayInput);
    dayDiv.append(dayTitle);
@@ -202,6 +208,7 @@ const renderEvents = () => {
    secondDiv.append(secondTitle);
    countDownContainer.append(secondDiv);
 
+   countDownSide.append(cdEventDiv);
    countDownSide.append(countDownContainer);
 
    document.body.append(countDownSide);
