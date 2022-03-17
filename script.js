@@ -117,8 +117,8 @@ const renderEvents = () => {
     //countDown function
   function countDown(){
   const countDownSide = document.createElement("main");
-  countDownSide.classList.add("countdown-side")
-  
+  countDownSide.classList.add("countdown-side");
+
   const countDownContainer = document.createElement('div');
   countDownContainer.classList.add("countdown-container");
   
@@ -168,6 +168,19 @@ const renderEvents = () => {
    hourInput.textContent = hours;
    minuteInput.textContent = minutes;
    secondInput.textContent = seconds;
+
+    //if number is less than 10 add 0
+    if(seconds < 10){
+      secondInput.textContent = `0${seconds}` ;
+    } else if( minutes < 10){
+      minuteInput.textContent = `0${seconds}` ;
+    } else if(hours < 10){
+      hourInput.textContent = `0${hours}`;
+    } else if(days < 0){
+      dayInput.textContent = `0${days}`;
+    }
+
+
 
    //append day,hour,minute,second components to body
    dayDiv.append(dayInput);

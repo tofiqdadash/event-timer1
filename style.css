@@ -10,8 +10,7 @@
       justify-content: space-between;
       font-size: 62.5%;
       font-family: 'Open Sans', sans-serif;
-      background-color: #7cffcb;
-      background-image: linear-gradient(315deg, #7cffcb 0%, #74f2ce 74%);
+      background-color: #6224aa;
       position: relative;
   }
   
@@ -39,6 +38,13 @@
       padding : 4em 2em;
       margin: 2rem 1rem;
       border-radius: 5px;
+     /* From https://css.glass */
+   background: rgba(255, 255, 255, 0.02);
+   border-radius: 16px;
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(1.7px);
+   -webkit-backdrop-filter: blur(1.7px);
+   border: 1px solid rgba(255, 255, 255, 0.52);
   }
   
   .create-events label{
@@ -76,10 +82,13 @@
   .create-events #addbutton{
       margin-top: 1rem;
       font-size: 1rem;
-      color:black;
+      text-transform: uppercase;
+      color:white;
+      font-weight: 600;
       cursor: pointer;
       padding: 0.5rem 0;
-     
+      background: rgba(59,173,227,1);
+    background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
   }
 
   #addbutton:hover{
@@ -104,6 +113,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding-top: 1.5rem;
   }
   
   .rendered-event-container{
@@ -112,7 +122,7 @@
   }
   
   .rendered-event-container .date-side{
-      background-color: #03cdff;
+      background-color: #d13eee;
       color:white;
       font-size: 1rem;
       font-weight: 700;
@@ -124,7 +134,7 @@
   
   .rendered-event-container .title-side{
       background-color: white;
-      color: #03cdff;
+      color: #d503ff;
       font-size: 1rem ;
       font-weight: 500;
       text-align: center;
@@ -174,7 +184,7 @@
       position: absolute;
       left:0;
       top:0;
-  }
+    }
 
   .countdown-container{
       display: flex;
@@ -193,3 +203,4 @@
       align-items: center;
       justify-content: center;
   }
+
