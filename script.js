@@ -123,14 +123,18 @@ const renderEvents = () => {
   const countDownContainer = document.createElement('div');
   countDownContainer.classList.add("countdown-container");
 
+//event title in countdown section
 const cdEventDiv = document.createElement('div');
 cdEventDiv.classList.add('countdown-title-side');
+const cdEventTitle = document.createElement('h2');
+cdEventTitle.textContent = `Event title: ${item.title} `;
+cdEventDiv.append(cdEventTitle);
 
-//event title in countdown section
-  const cdEventTitle = document.createElement('h2');
-  cdEventTitle.textContent = `Event title: ${item.title} `;
-
-  cdEventDiv.append(cdEventTitle);
+const cdEventDate = document.createElement('h3');
+cdEventDate.textContent = `${eventDay} 
+${selectedMonth}`;
+cdEventDate.classList.add('countdown-date');
+cdEventDiv.append(cdEventDate);
 
   //exit button
 const exitBtn = document.createElement('img');

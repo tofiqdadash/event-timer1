@@ -246,3 +246,9 @@
     width:50px;
     cursor: pointer;
 }
+
+.countdown-date{
+    position: absolute;
+    top: -2.5rem;
+    left:40%;
+}
