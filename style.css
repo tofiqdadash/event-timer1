@@ -220,3 +220,29 @@
     text-align: center;
     color:white;
 }
+
+/* slide animation */
+/* .animation{
+    animation: slide_animation 5s ease-in;
+    animation-iteration-count: 1;
+} */
+
+@keyframes slide_animation{
+    0% {top: -300px;}
+    10%{top: -200px;}
+    20%{ top: -100px;}
+    30% {top:0px;}
+    40%{top:100px;}
+    60%{top:200px;}
+    80%{top:400px;}
+    100%{bottom:-100px;}
+}
+
+
+.exit-button{
+    position:absolute;
+    right:2rem;
+    top:3rem;
+    width:50px;
+    cursor: pointer;
+}

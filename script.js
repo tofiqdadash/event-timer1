@@ -118,6 +118,7 @@ const renderEvents = () => {
   function countDown(){
   const countDownSide = document.createElement("main");
   countDownSide.classList.add("countdown-side");
+  countDownSide.classList.add('animation');
 
   const countDownContainer = document.createElement('div');
   countDownContainer.classList.add("countdown-container");
@@ -125,11 +126,23 @@ const renderEvents = () => {
 const cdEventDiv = document.createElement('div');
 cdEventDiv.classList.add('countdown-title-side');
 
+//event title in countdown section
   const cdEventTitle = document.createElement('h2');
   cdEventTitle.textContent = `Event title: ${item.title} `;
 
   cdEventDiv.append(cdEventTitle);
 
+  //exit button
+const exitBtn = document.createElement('img');
+exitBtn.src = "./exit.png";
+exitBtn.classList.add('exit-button');
+countDownSide.append(exitBtn);
+
+exitBtn.addEventListener('click' , () => {
+  countDownSide.style.display = "none";
+})
+
+  //countdown components
   const dayDiv = document.createElement("div");
   dayDiv.classList.add("box");
   const dayInput = document.createElement("p");
