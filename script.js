@@ -228,7 +228,16 @@ exitBtn.addEventListener('click' , () => {
 
     if(distance < 0){
       clearInterval(interval);
-      console.log('expired');
+     
+      //expired notification 
+      cdEventTitle.textContent = `Event title: ${item.title} (expired) `;
+
+     
+      //if event time is expired stop countdown
+      dayInput.textContent = "-";
+      hourInput.textContent = "-";
+      minuteInput.textContent = "-";
+      secondInput.textContent = "-";
     }
 
    } , 1000)
